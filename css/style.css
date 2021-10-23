@@ -1,0 +1,48 @@
+.tcolor{
+    color: orange;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.tcolorii{
+    color: black;
+    font-weight: bold;
+}
+
+.badgefont{
+    font-weight: 500 !important;
+}
+
+.font{
+    font-family: Georgia;
+}
+
+.margin{
+    margin-top: 1px !important;
+}
+
+.radius{
+    border-radius: 0px !important;
+    border: none !important;
+}
+
+.size{
+    font-size: 30px;
+}
+
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+
+.margin{
+    margin-bottom: 5px;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.foot{
+    font-size: medium !important;
+}
