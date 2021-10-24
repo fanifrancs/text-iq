@@ -1,12 +1,20 @@
-function nchar() {
+function nkeystr() {
    let input = document.getElementById('input').value;
    let x = input.length;
-   document.getElementById('nchar').innerHTML = '<p id="nchar" class="size">'+ x +'</p>'; 
+   document.getElementById('nkeystr').innerHTML = '<p id="nkeystr" class="size">'+ x +'</p>'; 
 }
+
+function nchar() {
+    let input = document.getElementById('input').value;
+    let a = input.replace(/\s+/g, '');
+    let x = a.length;
+    document.getElementById('nchar').innerHTML = '<p id="nchar" class="size">'+ x +'</p>'; 
+ }
 
 function ucase() {
     let input = document.getElementById('input').value;
-    let x = input.toUpperCase();
+    let a = input.replace(/\s+/g, ' ');
+    let x = a.toUpperCase();
     document.getElementById('ucase').innerHTML = x;
 }
 
@@ -23,6 +31,15 @@ function fp() {
     let x = new RegExp(fnd, 'gi')
     let result = input.replace(x, rpl);
     document.getElementById('fp').innerHTML = result;
+}
+
+function fps() {
+    let input = document.getElementById('input').value;
+    let fnds = document.getElementById('fnds').value;
+    let rpls = document.getElementById('rpls').value;
+    let xs = new RegExp(fnds, 'g')
+    let result = input.replace(xs, rpls);
+    document.getElementById('fps').innerHTML = result;
 }
 
 function lowerCase() {
