@@ -32,7 +32,7 @@
 
 .hidden{
     visibility: hidden;
-    display: none;
+    display : none;
 }
 
 .margin{
@@ -45,4 +45,17 @@
 
 .foot{
     font-size: medium !important;
+}
+
+.width{
+    width: 100% !important;
+    height: 50px !important;
+}
+
+.form-control{
+    border-radius: 0px !important;
+}
+
+.nbord{
+    border: none !important;
 }
