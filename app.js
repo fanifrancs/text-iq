@@ -22,8 +22,7 @@ function nchar() {
 
 function ucase() {
     let input = inputfield.value;
-    let a = input.replace(/\s+/g, ' ');
-    let x = a.toUpperCase();
+    let x = input.toUpperCase();
     document.getElementById('ucase').innerHTML = x;
 }
 

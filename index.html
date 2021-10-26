@@ -20,70 +20,68 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light">
-    <div class="container-fluid">
+  <nav class="navbar container navbar-dark fixed-top bg-light">
+    <div class="containe">
       <a class="navbar-brand" href="#"> <span class="tcolorii">Text</span> <span class="tcolor">IQ</span></a>
     </div><br>
-    <form class="container-fluid">
-      <textarea class="form-control" id="input" cols="100" rows="5" placeholder="Paste / enter input here"
+      <textarea class="form-control" id="input" rows="5" placeholder="Paste / enter input here"
         oninput="nkeystr(), nchar(), ucase(), lcase()">
       </textarea>
       <br>
-    </form>
-    <div class="container-fluid">
+    <div>
       <button class="btn btn-danger mt-2" onclick="reset()">Clear</button>
     </div>
-  </nav><br><br><br>
+  </nav><br><br><br><br><br>
 
   <div class="container mt-5">
-    <div class="mt-4 p-5 bg-dark text-white rounded">
+    <div class="mt-4 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont"># of Keystrokes</span></h3>
-      <p id="nkeystr">Result will appear here</p>
+      <p id="nkeystr">Result will appear here.</p>
     </div>
   </div>
 
-  <div class="container mt-0">
-    <div class="mt-1 p-5 bg-dark text-white rounded">
+  <div class="container mt-3">
+    <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont"># of Characters</span></h3>
-      <p id="nchar">Result will appear here</p>
+      <p id="nchar">Result will appear here.</p>
     </div>
   </div>
 
-  <div class="container mt-0">
-    <div class="mt-1 p-5 bg-dark text-white rounded">
+  <div class="container mt-3">
+    <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Uppercase Output</span></h3>
-      <p id="ucase">Result will appear here</p>
+      <textarea disabled class="form-control nbord" id="ucase" rows="5">Result will appear here.</textarea>
     </div>
   </div>
 
-  <div class="container mt-0">
-    <div class="mt-1 p-5 bg-dark text-white rounded">
+  <div class="container mt-3">
+    <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Lowercase Output</span></h3>
-      <p id="lcase">Result will appear here</p>
+      <textarea disabled class="form-control nbord" id="lcase" rows="5">Result will appear here.</textarea>
     </div>
   </div>
 
-  <div class="container mt-0">
-    <div class="mt-1 p-5 bg-dark text-white rounded">
+  <div class="container mt-3">
+    <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-insensitive)</tt>
       <form>
         <input type="text" class="form-control radius" id="fnd" placeholder="Find what?" required>
         <input type="text" class="form-control margin radius" id="rpl" placeholder="Replace with?" required>
         <input type="button" class="w-100 btn btn-primary" value="Submit" onclick="fp()">
       </form><br>
-      <p id="fp">Result will appear here</p>
+      <textarea disabled class="form-control nbord" id="fp" rows="5">Result will appear here.</textarea>
     </div>
   </div>
 
-  <div class="container mt-0">
-    <div class="mt-1 p-5 bg-dark text-white rounded">
+  <div class="container mt-3">
+    <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-sensitive)</tt>
       <form>
         <input type="text" class="form-control radius" id="fnds" placeholder="Find what?" required>
         <input type="text" class="form-control margin radius" id="rpls" placeholder="Replace with?" required>
         <input type="button" class="w-100 btn btn-primary" value="Submit" onclick="fps()">
       </form><br>
-      <p id="fps">Result will appear here</p>
+      <textarea disabled class="form-control nbord" id="fps" rows="5">Result will appear here.</textarea>
     </div>
   </div>
 
