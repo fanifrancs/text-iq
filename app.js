@@ -1,31 +1,40 @@
+// textarea element for entering of input
+var inputfield = document.getElementById('input');
+// placeholder for inputfield
+const placeholder="Paste / enter input here";
+
 function nkeystr() {
-   let input = document.getElementById('input').value;
+    let input = inputfield.value;
+   // stores the input in the localStorage as user paste/input it
+   // so the input can be accessed in case of accidental closing of
+   // browser tab or reloading
+   localStorage.setItem('input', input)
    let x = input.length;
    document.getElementById('nkeystr').innerHTML = '<p id="nkeystr" class="size">'+ x +'</p>'; 
 }
 
 function nchar() {
-    let input = document.getElementById('input').value;
+    let input = inputfield.value;
     let a = input.replace(/\s+/g, '');
     let x = a.length;
     document.getElementById('nchar').innerHTML = '<p id="nchar" class="size">'+ x +'</p>'; 
  }
 
 function ucase() {
-    let input = document.getElementById('input').value;
+    let input = inputfield.value;
     let a = input.replace(/\s+/g, ' ');
     let x = a.toUpperCase();
     document.getElementById('ucase').innerHTML = x;
 }
 
 function lcase() {
-    let input = document.getElementById('input').value;
+    let input = inputfield.value;
     let x = input.toLowerCase();
     document.getElementById('lcase').innerHTML = x;
 }
 
 function fp() {
-    let input = document.getElementById('input').value;
+    let input = inputfield.value;
     let fnd = document.getElementById('fnd').value;
     let rpl = document.getElementById('rpl').value;
     let x = new RegExp(fnd, 'gi')
@@ -34,7 +43,7 @@ function fp() {
 }
 
 function fps() {
-    let input = document.getElementById('input').value;
+    let input = inputfield.value;
     let fnds = document.getElementById('fnds').value;
     let rpls = document.getElementById('rpls').value;
     let xs = new RegExp(fnds, 'g')
@@ -47,6 +56,13 @@ function lowerCase() {
   	email.value = email.value.toLowerCase();
 }
 
+function reset() {
+    // clears the inputField and localstorage
+    localStorage.removeItem('input');
+    // reloads the html document
+    location.reload()
+}
+
 function validate() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
@@ -57,4 +73,20 @@ function validate() {
     } else {
       alert('All fields are required !');
     }
+}
+
+//gets the stored input from localstorage
+storedinput = localStorage.getItem('input');
+// if the key doesn't exist in localStorage
+// storedinput = null
+// so it renders the default inputField from html
+if (storedinput === null) {
+    inputfield.value = ''
+    inputfield.setAttribute('placeholder', placeholder);
+} else {
+    inputfield.value = storedinput;
+    nkeystr()
+    nchar()
+    ucase()
+    lcase()
 }
