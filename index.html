@@ -50,14 +50,14 @@
   <div class="container mt-3">
     <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Uppercase Output</span></h3>
-      <textarea disabled class="form-control nbord" id="ucase" rows="5">Result will appear here.</textarea>
+      <textarea disabled class="form-control nbord" id="ucase" rows="5" placeholder="Result will appear here."></textarea>
     </div>
   </div>
 
   <div class="container mt-3">
     <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Lowercase Output</span></h3>
-      <textarea disabled class="form-control nbord" id="lcase" rows="5">Result will appear here.</textarea>
+      <textarea disabled class="form-control nbord" id="lcase" rows="5" placeholder="Result will appear here."></textarea>
     </div>
   </div>
 
@@ -65,11 +65,14 @@
     <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-insensitive)</tt>
       <form>
-        <input type="text" class="form-control radius" id="fnd" placeholder="Find what?" required>
-        <input type="text" class="form-control margin radius" id="rpl" placeholder="Replace with?" required>
-        <input type="button" class="w-100 btn btn-primary" value="Submit" onclick="fp()">
+        <!--<div id="alert" class="">
+          <span id="alertmessage"></span>
+        </div>-->
+        <input type="text" class="form-control radius" id="fnd" placeholder="Find what?" oninput="fpValidate()">
+        <input type="text" class="form-control margin radius" id="rpl" placeholder="Replace with?" oninput="fpValidate()">
+        <input disabled type="button" class="w-100 btn btn-primary" id="fpsubmit" value="Submit" onclick="fp()">
       </form><br>
-      <textarea disabled class="form-control nbord" id="fp" rows="5">Result will appear here.</textarea>
+      <textarea disabled class="form-control nbord" id="fp" rows="5" placeholder="Result will appear here."></textarea>
     </div>
   </div>
 
@@ -77,11 +80,12 @@
     <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-sensitive)</tt>
       <form>
-        <input type="text" class="form-control radius" id="fnds" placeholder="Find what?" required>
-        <input type="text" class="form-control margin radius" id="rpls" placeholder="Replace with?" required>
-        <input type="button" class="w-100 btn btn-primary" value="Submit" onclick="fps()">
+        <span id="fpserror" style="color: crimson;"></span>
+        <input type="text" class="form-control radius" id="fnds" placeholder="Find what?" oninput="fpsValidate()">
+        <input type="text" class="form-control margin radius" id="rpls" placeholder="Replace with?" oninput="fpsValidate()">
+        <input disabled type="button" class="w-100 btn btn-primary" id="fpssubmit" value="Submit" onclick="fps()">
       </form><br>
-      <textarea disabled class="form-control nbord" id="fps" rows="5">Result will appear here.</textarea>
+      <textarea disabled class="form-control nbord" id="fps" rows="5" placeholder="Result will appear here."></textarea>
     </div>
   </div>
 

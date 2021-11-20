@@ -32,13 +32,39 @@ function lcase() {
     document.getElementById('lcase').innerHTML = x;
 }
 
+function fpValidate() {
+    let fnd = document.getElementById('fnd').value;
+    let rpl = document.getElementById('rpl').value;
+    if (fnd == '' || rpl == '') {
+        document.getElementById('fpsubmit').disabled = true;
+    } else {
+        document.getElementById('fpsubmit').disabled = false; 
+    }
+}
+
 function fp() {
     let input = inputfield.value;
     let fnd = document.getElementById('fnd').value;
     let rpl = document.getElementById('rpl').value;
-    let x = new RegExp(fnd, 'gi')
-    let result = input.replace(x, rpl);
-    document.getElementById('fp').innerHTML = result;
+    /*if (input.includes(fnd) == false) {
+        document.getElementById('alert').className = 'alert alert-danger alert-dismissible';
+        document.getElementById('alertmessage').innerHTML = 'Input not found!';
+        document.getElementById('alert').style.display = 'block';
+    } else {*/
+        let x = new RegExp(fnd, 'gi')
+        let result = input.replace(x, rpl);
+        document.getElementById('fp').innerHTML = result;
+    //} 
+}
+
+function fpsValidate() {
+    let fnds = document.getElementById('fnds').value;
+    let rpls = document.getElementById('rpls').value;
+    if (fnds == '' || rpls == '') {
+        document.getElementById('fpssubmit').disabled = true;
+    } else {
+        document.getElementById('fpssubmit').disabled = false; 
+    }
 }
 
 function fps() {
@@ -70,7 +96,7 @@ function validate() {
     if (name.value != '' && email.value != '' && subject.value != '' && message.value != '') {
         document.getElementById('submit').innerHTML = '<div class="spinner-border"></div>'
     } else {
-      alert('All fields are required !');
+      alert('All fields are required!');
     }
 }
 

@@ -35,6 +35,10 @@
     display : none;
 }
 
+.hidden-btn{
+    display : none;
+}
+
 .margin{
     margin-bottom: 5px;
 }
