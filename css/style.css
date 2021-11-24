@@ -35,6 +35,10 @@
     display : none;
 }
 
+.hidden-btn{
+    display : none;
+}
+
 .margin{
     margin-bottom: 5px;
 }
@@ -58,4 +62,8 @@
 
 .nbord{
     border: none !important;
+}
+
+.nword{
+    font-size: 30px;
 }

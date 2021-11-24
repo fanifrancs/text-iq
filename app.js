@@ -3,6 +3,13 @@ var inputfield = document.getElementById('input');
 // placeholder for inputfield
 const placeholder="Paste / enter input here";
 
+document.getElementById('input').addEventListener('input', e => nkeystr())
+document.getElementById('input').addEventListener('input', e => nchar())
+document.getElementById('input').addEventListener('input', e => nword())
+document.getElementById('input').addEventListener('input', e => ucase())
+document.getElementById('input').addEventListener('input', e => lcase())
+document.getElementById('email').addEventListener('input', e => lowerCase())
+
 function nkeystr() {
     let input = inputfield.value;
    // stores the input in the localStorage as user paste/input it
@@ -13,7 +20,21 @@ function nkeystr() {
    document.getElementById('nkeystr').innerHTML = '<p id="nkeystr" class="size">'+ x +'</p>'; 
 }
 
-function nchar() {
+function nword() {
+    let input = inputfield.value;
+    if (input =='') {
+        document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ 0 +'</p>';
+    } else {
+        //document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ input.split(' ').length +'</p>';
+    let a = input.replace(/(^\s*)|(\s*$)/gi, '');
+    let x = a.replace(/[ ]{2,}/gi, '');
+    let y = x.replace(/\n /,'\n');
+    let z = y.split(' ').length;
+    document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ z +'</p>';
+    }
+ }
+
+ function nchar() {
     let input = inputfield.value;
     let a = input.replace(/\s+/g, '');
     let x = a.length;
@@ -32,13 +53,39 @@ function lcase() {
     document.getElementById('lcase').innerHTML = x;
 }
 
+function fpValidate() {
+    let fnd = document.getElementById('fnd').value;
+    let rpl = document.getElementById('rpl').value;
+    if (fnd == '' || rpl == '') {
+        document.getElementById('fpsubmit').disabled = true;
+    } else {
+        document.getElementById('fpsubmit').disabled = false; 
+    }
+}
+
 function fp() {
     let input = inputfield.value;
     let fnd = document.getElementById('fnd').value;
     let rpl = document.getElementById('rpl').value;
-    let x = new RegExp(fnd, 'gi')
-    let result = input.replace(x, rpl);
-    document.getElementById('fp').innerHTML = result;
+    /*if (input.includes(fnd) == false) {
+        document.getElementById('alert').className = 'alert alert-danger alert-dismissible';
+        document.getElementById('alertmessage').innerHTML = 'Input not found!';
+        document.getElementById('alert').style.display = 'block';
+    } else {*/
+        let x = new RegExp(fnd, 'gi')
+        let result = input.replace(x, rpl);
+        document.getElementById('fp').innerHTML = result;
+    //} 
+}
+
+function fpsValidate() {
+    let fnds = document.getElementById('fnds').value;
+    let rpls = document.getElementById('rpls').value;
+    if (fnds == '' || rpls == '') {
+        document.getElementById('fpssubmit').disabled = true;
+    } else {
+        document.getElementById('fpssubmit').disabled = false; 
+    }
 }
 
 function fps() {
@@ -70,7 +117,7 @@ function validate() {
     if (name.value != '' && email.value != '' && subject.value != '' && message.value != '') {
         document.getElementById('submit').innerHTML = '<div class="spinner-border"></div>'
     } else {
-      alert('All fields are required !');
+      alert('All fields are required!');
     }
 }
 
