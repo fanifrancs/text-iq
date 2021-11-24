@@ -3,6 +3,13 @@ var inputfield = document.getElementById('input');
 // placeholder for inputfield
 const placeholder="Paste / enter input here";
 
+document.getElementById('input').addEventListener('input', e => nkeystr())
+document.getElementById('input').addEventListener('input', e => nchar())
+document.getElementById('input').addEventListener('input', e => nword())
+document.getElementById('input').addEventListener('input', e => ucase())
+document.getElementById('input').addEventListener('input', e => lcase())
+document.getElementById('email').addEventListener('input', e => lowerCase())
+
 function nkeystr() {
     let input = inputfield.value;
    // stores the input in the localStorage as user paste/input it
@@ -13,7 +20,21 @@ function nkeystr() {
    document.getElementById('nkeystr').innerHTML = '<p id="nkeystr" class="size">'+ x +'</p>'; 
 }
 
-function nchar() {
+function nword() {
+    let input = inputfield.value;
+    if (input =='') {
+        document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ 0 +'</p>';
+    } else {
+        //document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ input.split(' ').length +'</p>';
+    let a = input.replace(/(^\s*)|(\s*$)/gi, '');
+    let x = a.replace(/[ ]{2,}/gi, '');
+    let y = x.replace(/\n /,'\n');
+    let z = y.split(' ').length;
+    document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ z +'</p>';
+    }
+ }
+
+ function nchar() {
     let input = inputfield.value;
     let a = input.replace(/\s+/g, '');
     let x = a.length;

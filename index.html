@@ -24,10 +24,7 @@
     <div class="containe">
       <a class="navbar-brand" href="#"> <span class="tcolorii">Text</span> <span class="tcolor">IQ</span></a>
     </div><br>
-      <textarea class="form-control" id="input" rows="5" placeholder="Paste / enter input here"
-        oninput="nkeystr(), nchar(), ucase(), lcase()">
-      </textarea>
-      <br>
+      <textarea class="form-control" id="input" rows="5" placeholder="Paste / enter input here"></textarea>
     <div>
       <button class="btn btn-danger mt-2" onclick="reset()">Clear</button>
     </div>
@@ -36,14 +33,21 @@
   <div class="container mt-5">
     <div class="mt-4 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont"># of Keystrokes</span></h3>
-      <p id="nkeystr">Result will appear here.</p>
+      <p id="nkeystr" style="font-size: 30px;">0</p>
     </div>
   </div>
 
   <div class="container mt-3">
     <div class="mt-1 p-3 bg-dark text-white rounded">
       <h3><span class="badge bg-secondary badgefont"># of Characters</span></h3>
-      <p id="nchar">Result will appear here.</p>
+      <p id="nchar" style="font-size: 30px;">0</p>
+    </div>
+  </div>
+
+  <div class="container mt-3">
+    <div class="mt-1 p-3 bg-dark text-white rounded">
+      <h3><span class="badge bg-secondary badgefont"># of Words</span></h3>
+      <p id="nword" style="font-size: 30px;">0</p>
     </div>
   </div>
 
@@ -63,7 +67,7 @@
 
   <div class="container mt-3">
     <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-insensitive)</tt>
+      <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-Insensitive)</tt>
       <form>
         <!--<div id="alert" class="">
           <span id="alertmessage"></span>
@@ -78,9 +82,8 @@
 
   <div class="container mt-3">
     <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-sensitive)</tt>
+      <h3><span class="badge bg-secondary badgefont">Find & Replace</span></h3><tt>(Case-Sensitive)</tt>
       <form>
-        <span id="fpserror" style="color: crimson;"></span>
         <input type="text" class="form-control radius" id="fnds" placeholder="Find what?" oninput="fpsValidate()">
         <input type="text" class="form-control margin radius" id="rpls" placeholder="Replace with?" oninput="fpsValidate()">
         <input disabled type="button" class="w-100 btn btn-primary" id="fpssubmit" value="Submit" onclick="fps()">
@@ -126,7 +129,7 @@
             <label for="name">Name</label>
             <input name="name" type="text" class="form-control" id="name" required><br>
             <label for="email">Email</label>
-            <input name="email" type="email" class="form-control" id="email" oninput="lowerCase()" required><br>
+            <input name="email" type="email" class="form-control" id="email" required><br>
             <label for="subject">Subject</label>
             <input name="subject" type="text" class="form-control" id="subject" required><br>
             <label for="message">Message</label>

@@ -63,3 +63,7 @@
 .nbord{
     border: none !important;
 }
+
+.nword{
+    font-size: 30px;
+}
