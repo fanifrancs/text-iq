@@ -135,4 +135,5 @@ if (storedinput === null) {
     nchar()
     ucase()
     lcase()
+    nword()
 }
