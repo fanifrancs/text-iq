@@ -25,12 +25,7 @@ function nword() {
     if (input =='') {
         document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ 0 +'</p>';
     } else {
-        //document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ input.split(' ').length +'</p>';
-    let a = input.replace(/(^\s*)|(\s*$)/gi, '');
-    let x = a.replace(/[ ]{2,}/gi, '');
-    let y = x.replace(/\n /,'\n');
-    let z = y.split(' ').length;
-    document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ z +'</p>';
+        document.getElementById('nword').innerHTML = '<p id="nword" class="size">'+ input.match(/(\w+)/g).length +'</p>';
     }
  }
 
@@ -47,10 +42,28 @@ function ucase() {
     document.getElementById('ucase').innerHTML = x;
 }
 
+function ucasecopy() {
+    let ucaseresultfield = document.getElementById('ucase');
+    ucaseresultfield.select();
+    //ucaseresultfieldsetSelectionRange(0, 99999); 
+    let result =  ucaseresultfield.value;
+    navigator.clipboard.writeText(result);
+    alert('Copied to clipboard.');
+}
+
 function lcase() {
     let input = inputfield.value;
     let x = input.toLowerCase();
     document.getElementById('lcase').innerHTML = x;
+}
+
+function lcasecopy() {
+    let lcaseresultfield = document.getElementById('lcase');
+    lcaseresultfield.select();
+    //lcasefieldsetSelectionRange(0, 99999); 
+    let result =  lcaseresultfield.value;
+    navigator.clipboard.writeText(result);
+    alert('Copied to clipboard.');
 }
 
 function fpValidate() {
@@ -67,15 +80,18 @@ function fp() {
     let input = inputfield.value;
     let fnd = document.getElementById('fnd').value;
     let rpl = document.getElementById('rpl').value;
-    /*if (input.includes(fnd) == false) {
-        document.getElementById('alert').className = 'alert alert-danger alert-dismissible';
-        document.getElementById('alertmessage').innerHTML = 'Input not found!';
-        document.getElementById('alert').style.display = 'block';
-    } else {*/
-        let x = new RegExp(fnd, 'gi')
-        let result = input.replace(x, rpl);
-        document.getElementById('fp').innerHTML = result;
-    //} 
+    let x = new RegExp(fnd, 'gi')
+    let result = input.replace(x, rpl);
+    document.getElementById('fp').innerHTML = result;
+}
+
+function fpcopy() {
+    let fpresultfield = document.getElementById('fp');
+    fpresultfield.select();
+    //fpresultfieldsetSelectionRange(0, 99999); 
+    let result =  fpresultfield.value;
+    navigator.clipboard.writeText(result);
+    alert('Copied to clipboard.');
 }
 
 function fpsValidate() {
@@ -95,6 +111,15 @@ function fps() {
     let xs = new RegExp(fnds, 'g')
     let result = input.replace(xs, rpls);
     document.getElementById('fps').innerHTML = result;
+}
+
+function fpscopy() {
+    let fpsresultfield = document.getElementById('fps');
+    fpsresultfield.select();
+    //fpsresultfieldsetSelectionRange(0, 99999); 
+    let result =  fpsresultfield.value;
+    navigator.clipboard.writeText(result);
+    alert('Copied to clipboard.');
 }
 
 function lowerCase() {
