@@ -3,12 +3,12 @@ var inputfield = document.getElementById('input');
 // placeholder for inputfield
 const placeholder="Paste / enter input here";
 
-document.getElementById('input').addEventListener('input', e => nkeystr())
-document.getElementById('input').addEventListener('input', e => nchar())
-document.getElementById('input').addEventListener('input', e => nword())
-document.getElementById('input').addEventListener('input', e => ucase())
-document.getElementById('input').addEventListener('input', e => lcase())
-document.getElementById('email').addEventListener('input', e => lowerCase())
+document.getElementById('input').addEventListener('input', nkeystr);
+document.getElementById('input').addEventListener('input', nchar);
+document.getElementById('input').addEventListener('input', nword);
+document.getElementById('input').addEventListener('input', ucase);
+document.getElementById('input').addEventListener('input', lcase);
+document.getElementById('email').addEventListener('input', lowerCase);
 
 function nkeystr() {
     let input = inputfield.value;
