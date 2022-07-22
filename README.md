@@ -1,3 +1,4 @@
 # Text-IQ
-Text-IQ is simple and attractive app that can used to perform some basic functions on text. Functions such as keystroke/character count, auto-capitalization &amp; finding and replacing. Made with ❤ by Francisco.
+Inspired by JS string methods, I built this simple app to perform some basic operations on text. 
+Operations include keystroke/character count, finding & replacing etc.
 Contributions are welcome.
