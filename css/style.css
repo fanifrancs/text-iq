@@ -1,93 +1,10 @@
-.tcolor{
+.heading_iq{
     color: rgb(221, 144, 0);
     font-size: larger;
     font-weight: bold;
 }
 
-.tcolorii{
+.heading_text{
     color: black;
     font-weight: bold;
 }
-
-.badgefont{
-    font-weight: 500 !important;
-}
-
-.font{
-    font-family: Georgia;
-}
-
-.margin{
-    margin-top: 1px !important;
-}
-
-.radius{
-    border-radius: 0px !important;
-    border: none !important;
-}
-
-.size{
-    font-size: 30px;
-}
-
-.hidden{
-    visibility: hidden;
-    display : none;
-}
-
-.hidden-btn{
-    display : none;
-}
-
-.margin{
-    margin-bottom: 5px;
-}
-
-.link{
-    text-decoration: none;
-}
-
-.foot{
-    font-size: medium !important;
-}
-
-.width{
-    width: 100% !important;
-    height: 50px !important;
-}
-
-.form-control{
-    border-radius: 0px !important;
-}
-
-.nbord{
-    border: none !important;
-}
-
-.nword{
-    font-size: 30px;
-}
-
-.logo{
-    width: 40px;
-}
-
-.bt{
-    border-radius: 7px !important;
-    border: none !important;
-}
-
-.dev{
-    border: 1px solid rgb(221, 144, 0);
-    padding-left: 10px;
-}
-
-.devbtn{
-    height: 50px;
-}
-
-.devbtnn{
-    margin-top: 10px;
-    height: 50px;
-}
-

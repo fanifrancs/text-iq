@@ -1,166 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="application-name" content="Text IQ">
-  <meta name="description"
-    content="Text IQ: Paste and perform simple functions on your texts such as finding number of characters, auto-capitalization, finding and replacing etc. ">
-  <meta name="author" content="Francisco">
-  <title>Text IQ</title>
-  <link rel="icon" href="./favicon.png">
-  <link rel="stylesheet" href="./css/navbar-top-fixed.css">
-  <link rel="stylesheet" href="./css/footers.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="application-name" content="Text IQ">
+    <meta name="description"
+      content="Text IQ: Paste and perform simple functions on your texts such as finding number of characters, auto-capitalization, finding and replacing etc. "
+    >
+    <title>Text IQ</title>
+    <link rel="icon" href="./favicon.png">
+    <link rel="stylesheet" href="./css/navbar-top-fixed.css">
+    <link rel="stylesheet" href="./css/footers.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap-5.1.0-dist/css/bootstrap.min.css">
+  </head>
 
-<body>
-
-  <nav class="navbar container navbar-dark fixed-top bg-light">
-    <div class="containe">
-      <h class="navbar-brand"><span class="tcolorii">Text</span> <span class="tcolor">IQ</span></h>
-    </div><br>
-      <textarea class="form-control" id="input" rows="5" placeholder="Paste / enter input here"></textarea>
-    <div>
-      <button class="btn btn-danger mt-2" onclick="reset()">Clear</button>
-    </div>
-  </nav><br><br><br><br><br>
-
-  <div class="container mt-5">
-    <div class="mt-4 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont"># of Keystrokes</span></h3>
-      <p id="nkeystr" style="font-size: 30px;">0</p>
-    </div>
-  </div>
-
-  <div class="container mt-3">
-    <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont"># of Characters</span></h3>
-      <p id="nchar" style="font-size: 30px;">0</p>
-    </div>
-  </div>
-
-  <div class="container mt-3">
-    <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont"># of Words</span></h3>
-      <p id="nword" style="font-size: 30px;">0</p>
-    </div>
-  </div>
-
-  <div class="container mt-3">
-    <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont">Uppercase Output</span>
-      </h3>
-      <textarea disabled class="form-control nbord" id="ucase" rows="5" placeholder="Result will appear here."></textarea>
-      <input type="button" class="w-100 btn btn-secondary" id="ucasecopy" value="Copy to clipboard" onclick="ucasecopy()">
-    </div>
-  </div>
-
-  <div class="container mt-3">
-    <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont">Lowercase Output</span>
-      </h3>
-      <textarea disabled class="form-control nbord" id="lcase" rows="5" placeholder="Result will appear here."></textarea>
-      <input type="button" class="w-100 btn btn-secondary" id="lcasecopy" value="Copy to clipboard" onclick="lcasecopy()">
-    </div>
-  </div>
-
-  <div class="container mt-3">
-    <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont">Find & Replace</span>
-      </h3><tt>(Case-insensitive)</tt>
-      <form>
-        <input type="text" class="form-control radius" id="fnd" placeholder="Find what?" oninput="fpValidate()">
-        <input type="text" class="form-control margin radius" id="rpl" placeholder="Replace with?" oninput="fpValidate()">
-        <input disabled type="button" class="w-100 btn btn-primary" id="fpsubmit" value="Submit" onclick="fp()">
-      </form><br>
-      <textarea disabled class="form-control nbord" id="fp" rows="5" placeholder="Result will appear here."></textarea>
-      <input type="button" class="w-100 btn btn-secondary" id="fpcopy" value="Copy to clipboard" onclick="fpcopy()">
-    </div>
-  </div>
-
-  <div class="container mt-3">
-    <div class="mt-1 p-3 bg-dark text-white rounded">
-      <h3><span class="badge bg-secondary badgefont">Find & Replace</span>
-      </h3><tt>(Case-sensitive)</tt>
-      <form>
-        <input type="text" class="form-control radius" id="fnds" placeholder="Find what?" oninput="fpsValidate()">
-        <input type="text" class="form-control margin radius" id="rpls" placeholder="Replace with?" oninput="fpsValidate()">
-        <input disabled type="button" class="w-100 btn btn-primary" id="fpssubmit" value="Submit" onclick="fps()">
-      </form><br>
-      <textarea disabled class="form-control nbord" id="fps" rows="5" placeholder="Result will appear here."></textarea>
-      <input type="button" class="w-100 btn btn-secondary" id="fpscopy" value="Copy to clipboard" onclick="fpscopy()">
-    </div>
-  </div>
-
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <span class="text-muted">&copy; 2021 <h class="navbar-brand" href="#"> <span class="tcolorii">Text</span> <span class="tcolor">IQ</span></h></span>
+  <body>
+    <nav class="navbar container navbar-dark fixed-top bg-light">
+      <div>
+        <h2 class="navbar-brand">
+          <span class="heading_text">Text</span> <span class="heading_iq">IQ</span>
+        </h2>
+      </div><br>
+        <textarea 
+          class="form-control" 
+          rows="5"
+          id="input"
+          placeholder="Paste / enter input here" 
+          oninput="
+            nkeystr(), 
+            nword(), 
+            nchar(), 
+            ucase(), 
+            lcase()"
+          >
+        </textarea>
       </div>
-
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="nav-item">
-          <span class="navbar-brand text-muted foot">Made with ❤</span>
-        </li>
-      </ul>
-
-      <div class="col-md-4 d-flex align-items-center">
-        <button class="btn btn-sm btn-outline-light bt"><a class="text-light link" data-bs-toggle="modal" data-bs-target="#myModal"
-            href="#"><img style="width: 20px;" src="./cursor.svg" alt="Share Feedback"></a>
-        </button>
-        <button class="btn btn-sm btn-outline-light bt"><a class="text-light link"
-          href="./Text-IQ.apk" download ><img style="width: 20px;" src="./download.svg" alt="download app"></a>
-        </button>
-        <button class="btn btn-sm btn-outline-light bt"><a class="text-light link"
-          href="https://www.github.com/fanifrancs/Text-IQ" target="_blank" rel="noopener noreferrer"><img style="width: 20px;" src="./github.svg" alt="For developers"></a>
-        </button>
+      <div>
+        <button class="btn btn-danger mt-2" onclick="reset()">Clear</button>
       </div>
-    </footer>
-  </div>
+    </nav><br><br><br><br><br>
 
-  </div>
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h4 class="modal-title">Feedback form</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-
-        <div class="modal-body container">
-          <h5>Send us a message</h5>
-          <form method="POST" action="https://formspree.io/f/mbjqeopd">
-            <input name="app-name" class="w-100 hidden" type="text" value="Text IQ"><br>
-            <label for="name">Name</label>
-            <input name="name" type="text" class="form-control" id="name" required><br>
-            <label for="email">Email</label>
-            <input name="email" type="email" class="form-control" id="email" required><br>
-            <label for="subject">Subject</label>
-            <input name="subject" type="text" class="form-control" id="subject" required><br>
-            <label for="message">Message</label>
-            <textarea name="message" id="message" class="form-control" cols="30" rows="5" required></textarea><br>
-            <label for="range">Rate this app</label>
-            <input name="rate" type="range" class="w-100 form-control" id="range" max="10" min="0" value="0"><br>
-            <button name="submit" class="w-100 btn btn-lg btn-dark" type="submit" id="submit"
-              onclick="validate()"><span>Submit<span></button>
-          </form>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
-
+    <div class="container mt-5">
+      <div class="mt-4 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary"># of Keystrokes</span></h3>
+        <div id="nkeystr">0</div>
       </div>
     </div>
-  </div>
 
-  <script src="./app.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <div class="container mt-3">
+      <div class="mt-1 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary"># of Characters</span></h3>
+        <div id="nchar">0</div>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="mt-1 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary"># of Words</span></h3>
+        <p id="nword">0</p>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="mt-1 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary">Uppercase Output</span>
+        </h3>
+        <textarea 
+          disabled 
+          class="form-control" 
+          id="ucase" rows="5" 
+          placeholder="Result will appear here.">
+        </textarea>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="mt-1 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary">Lowercase Output</span>
+        </h3>
+        <textarea 
+          disabled 
+          class="form-control" 
+          id="lcase" rows="5" 
+          placeholder="Result will appear here.">
+        </textarea>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="mt-1 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary">Find & Replace</span>
+        </h3>case-insensitive</h>
+        <form>
+          <input type="text" class="form-control" id="findi" placeholder="Find what?">
+          <input type="text" class="form-control" id="repli" placeholder="Replace with?">
+          <input type="button" class="w-100 btn btn-primary" value="Submit" onclick="fnri()">
+        </form><br>
+        <textarea 
+          disabled 
+          class="form-control" 
+          id="fnri" 
+          rows="5" 
+          placeholder="Result will appear here.">
+        </textarea>
+      </div>
+    </div>
+
+    <div class="container mt-3">
+      <div class="mt-1 p-3 bg-dark text-white rounded">
+        <h3><span class="badge bg-secondary">Find & Replace</span>
+        </h3>case-sensitive</h3>
+        <form>
+          <input type="text" class="form-control" id="finds" placeholder="Find what?">
+          <input type="text" class="form-control" id="repls" placeholder="Replace with?">
+          <input type="button" class="w-100 btn btn-primary" value="Submit" onclick="fnrs()">
+        </form><br>
+        <textarea 
+          disabled 
+          class="form-control" 
+          id="fnrs" 
+          rows="5" 
+          placeholder="Result will appear here.">
+        </textarea>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href="./Text-IQ.apk" download >Download Text-IQ</a>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
