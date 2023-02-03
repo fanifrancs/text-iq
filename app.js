@@ -1,8 +1,8 @@
 const inputfield = document.querySelector('#input'),
 placeholder = "Paste / enter input here";
-let input, find, repl, regex, modifier;
+let input;
 
-inputfield.addEventListener('input', nkeystr)
+inputfield.addEventListener('input', nkeystr);
 
 function nkeystr() {
     // sets input variable in global scope to input field's value
@@ -43,9 +43,9 @@ function lcase() {
 }
 
 function fnr() {
-    find = document.querySelector('#find').value;
-    repl = document.querySelector('#repl').value;
-    modifier = document.querySelector('#modifier').value
+    const find = document.querySelector('#find').value,
+          repl = document.querySelector('#repl').value,
+          modifier = document.querySelector('#modifier').value;
     if (modifier === 'case-sensitive') {
         regex = new RegExp(find, 'g');
     } else {
