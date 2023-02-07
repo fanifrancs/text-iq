@@ -8,3 +8,7 @@
     color: black;
     font-weight: bold;
 }
+
+#find, #repl, #modifier{
+    border-radius: 0;
+}
