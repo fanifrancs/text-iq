@@ -1,5 +1,13 @@
-const inputfield = document.querySelector('#input'),
-placeholder = "Paste / enter input here";
+const 
+inputfield = document.querySelector('#input'),
+placeholder = "Paste / enter input here",
+nkeystrElement = document.querySelector('#nkeystr'),
+ncharElement = document.querySelector('#nchar'),
+nwordElement = document.querySelector('#nword'),
+ucaseElement = document.querySelector('#ucase'),
+lcaseElement = document.querySelector('#lcase'),
+fnrElemnt = document.querySelector('#fnr');
+//
 let input;
 
 inputfield.addEventListener('input', nkeystr);
@@ -7,52 +15,58 @@ inputfield.addEventListener('input', nkeystr);
 function nkeystr() {
     // sets input variable in global scope to input field's value
     input = inputfield.value;
+    // calls the nchar function
     nchar();
     // stores the input in the localStorage as user paste/input it
     // so the input can be accessed in case of accidental closing of
     // browser tab or reloading
     localStorage.setItem('input', input);
-    if (!input) return document.querySelector('#nkeystr').innerText = '0';
+    if (!input) return nkeystrElement.innerText = '0';
     let output = input.length;
-    document.querySelector('#nkeystr').innerText = output; 
+    nkeystrElement.innerText = output; 
 }
 
 function nchar() {
+    // calls nword function
     nword();
-    if (!input) return document.querySelector('#nchar').innerText = '0';
+    if (!input) return ncharElement.innerText = '0';
     let output = input.replace(/\s+/g, '').length;
-    document.querySelector('#nchar').innerText = output;
+    ncharElement.innerText = output;
 }
 
 function nword() {
+    // calls ucase function
     ucase();
-    if (!input) return document.querySelector('#nword').innerText = '0';
+    if (!input) return nwordElement.innerText = '0';
     let output = input.match(/(\w+)/g).length;
-    document.querySelector('#nword').innerText = output;
+    nwordElement.innerText = output;
 }
 
 function ucase() {
+    // calls lcase function
     lcase();
     let output = input.toUpperCase();
-    document.querySelector('#ucase').innerText = output;
+    ucaseElement.innerText = output;
 }
 
 function lcase() {
     let output = input.toLowerCase();
-    document.querySelector('#lcase').innerText = output;
+    lcaseElement.innerText = output;
 }
 
 function fnr() {
-    const find = document.querySelector('#find').value,
-          repl = document.querySelector('#repl').value,
-          modifier = document.querySelector('#modifier').value;
+    const 
+    find = document.querySelector('#find').value,
+    repl = document.querySelector('#repl').value,
+    modifier = document.querySelector('#modifier').value;
+    //
     if (modifier === 'case-sensitive') {
         regex = new RegExp(find, 'g');
     } else {
         regex = new RegExp(find, 'gi');
     }
     let output = input.replace(regex, repl);
-    document.querySelector('#fnr').innerText = output;
+    fnrElemnt.innerText = output;
 }
 
 function reset() {
