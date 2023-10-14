@@ -1,2 +1,2 @@
 # Text-IQ
-Inspired by JS string methods, here is a straightforward application for carrying out essential tasks on text. These tasks include character counting, keystroke analysis, locating and substituting text, among others. To ensure a smooth experience, kindly consider updating your browser to prevent any unforeseen glitches.
+Inspired by JS string methods, I built this simple app to perform some basic functions on text. Functions include keystroke/character count, finding and replacing, etc.
